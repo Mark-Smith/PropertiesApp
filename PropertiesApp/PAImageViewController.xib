@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PAImageViewController">
             <connections>
+                <outlet property="activityIndicator" destination="pAp-rP-Ue2" id="tAo-6M-7i6"/>
+                <outlet property="imageView" destination="YRe-5z-sUR" id="AOF-A0-a9a"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -13,7 +16,31 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="wjD-Ek-2tH">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YRe-5z-sUR">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                </imageView>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="pAp-rP-Ue2">
+                    <rect key="frame" x="282" y="281" width="37" height="37"/>
+                </activityIndicatorView>
+            </subviews>
+            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="YRe-5z-sUR" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="704-qT-kuR"/>
+                <constraint firstItem="wjD-Ek-2tH" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" id="JSV-d7-gjx"/>
+                <constraint firstItem="YRe-5z-sUR" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="KK3-3I-rwg"/>
+                <constraint firstItem="wjD-Ek-2tH" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="SLo-om-D17"/>
+                <constraint firstItem="YRe-5z-sUR" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" id="cwj-zE-iF7"/>
+                <constraint firstItem="YRe-5z-sUR" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="iYm-6t-F9y"/>
+                <constraint firstItem="wjD-Ek-2tH" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="mdU-z6-BSe"/>
+                <constraint firstItem="wjD-Ek-2tH" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="wwS-if-2Al"/>
+            </constraints>
         </view>
     </objects>
+    <resources>
+        <image name="Placeholder" width="596" height="896"/>
+    </resources>
 </document>

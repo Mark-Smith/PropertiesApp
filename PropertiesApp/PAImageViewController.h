@@ -10,4 +10,13 @@
 
 @interface PAImageViewController : UIViewController
 
+@property (assign, nonatomic) NSInteger index;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (strong, nonatomic) NSString *imageURL;
+@property (weak, nonatomic) IBOutlet UILabel *indexLabel;
+@property (assign) BOOL imageViewLoaded;
+
+- (void)loadImage:(NSString*)imageURL;
+
 @end

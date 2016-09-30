@@ -8,10 +8,25 @@
 
 #import "MasterViewController.h"
 #import "DetailViewController.h"
+#import "PACoreDataHelper.h"
+#import "PARESTManager.h"
+#import "UIView+Toast.h"
+#import "PASummaryCell.h"
+#import "Image.h"
+#import <SDWebImage/UIImageView+WebCache.h>
+#import "DetailViewController.h"
 
-@interface MasterViewController ()
+
+#define kCityID @"1530"
+
+
+@interface MasterViewController () <UISplitViewControllerDelegate, NSFetchedResultsControllerDelegate, UIScrollViewDelegate>
+
+@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+// see https://www.raywenderlich.com/999/core-data-tutorial-for-ios-how-to-use-nsfetchedresultscontroller
 
 @end
+
 
 @implementation MasterViewController
 
@@ -19,10 +34,26 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
-
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
-    self.navigationItem.rightBarButtonItem = addButton;
+    
+    // clear the cache. why?
+    [[PACoreDataHelper sharedInstance] clearManagedObjectContextCacheForEntity:@"PropertySummary" withId:-1];
+    
     self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
+    self.navigationItem.leftBarButtonItem = nil;
+    
+    //self.tableView.rowHeight = UITableViewAutomaticDimension;
+    //self.tableView.estimatedRowHeight = 44.0; // set to whatever your "average" cell height is
+    
+    // get property summaries
+    [[PARESTManager sharedInstance] getPropertySummariesWithCityID:kCityID success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+        
+        [self.tableView reloadData];
+        
+        [self.navigationController.view makeToast:@"Property Summaries Loaded"];
+        
+    } failure:^(RKObjectRequestOperation *operation, NSError *error) {
+        [self.navigationController.view makeToast:@"Failed to Load Property Summaries"];
+    }];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -35,33 +66,51 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)insertNewObject:(id)sender {
-    NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
-    NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
-    NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
+// http://stackoverflow.com/a/25896529
+- (BOOL)splitViewController:(UISplitViewController *)splitViewController
+collapseSecondaryViewController:(UIViewController *)secondaryViewController
+  ontoPrimaryViewController:(UIViewController *)primaryViewController {
+    
+    if ([secondaryViewController isKindOfClass:[UINavigationController class]]
+        && [[(UINavigationController *)secondaryViewController topViewController] isKindOfClass:[DetailViewController class]]
+        && ([(DetailViewController *)[(UINavigationController *)secondaryViewController topViewController] propertySummaryMO] == nil)) {
         
-    // If appropriate, configure the new managed object.
-    // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
-    [newManagedObject setValue:[NSDate date] forKey:@"timeStamp"];
+        // Return YES to indicate that we have handled the collapse by doing nothing; the secondary controller will be discarded.
+        return YES;
         
-    // Save the context.
-    NSError *error = nil;
-    if (![context save:&error]) {
-        // Replace this implementation with code to handle the error appropriately.
-        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-        abort();
+    } else {
+        
+        return NO;
+        
     }
 }
 
+
+- (IBAction)refresh:(id)sender {
+    
+    // Reload the data
+    [[PARESTManager sharedInstance] getPropertySummariesWithCityID:kCityID success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+        [self.navigationController.view makeToast:@"Properties Summaries Loaded"];
+        [self.tableView reloadData];
+        [self.refreshControl endRefreshing];
+        
+    } failure:^(RKObjectRequestOperation *operation, NSError *error) {
+        [self.navigationController.view makeToast:@"Failed to Load Properties Summaries"];
+    }];
+}
+
+
 #pragma mark - Segues
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([[segue identifier] isEqualToString:@"showDetail"]) {
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {    
+    if ([[segue identifier] isEqualToString:@"ShowDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NSManagedObject *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+        NSManagedObject *propertySummaryMO = [[self fetchedResultsController] objectAtIndexPath:indexPath];
         DetailViewController *controller = (DetailViewController *)[[segue destinationViewController] topViewController];
-        [controller setDetailItem:object];
+        
+        // pass in the property summary managed object - so that relevant fields in the detail screen can be populated immediately - rather than waiting for the summary object to be retieved from the server
+        [controller setPropertySummaryMO:propertySummaryMO];
+        
         controller.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
         controller.navigationItem.leftItemsSupplementBackButton = YES;
     }
@@ -79,9 +128,9 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    PASummaryCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SummaryCell" forIndexPath:indexPath];
     NSManagedObject *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
-    [self configureCell:cell withObject:object];
+    [self configureCell:cell withObject:object forIndexPath:indexPath];
     return cell;
 }
 
@@ -105,9 +154,31 @@
     }
 }
 
-- (void)configureCell:(UITableViewCell *)cell withObject:(NSManagedObject *)object {
-    cell.textLabel.text = [[object valueForKey:@"timeStamp"] description];
+- (void)configureCell:(PASummaryCell *)cell withObject:(NSManagedObject *)object forIndexPath:(NSIndexPath*)indexPath {
+    
+    cell.name.text = [[object valueForKey:@"name"] description];
+    cell.type.text = [[object valueForKey:@"type"] description];
+    cell.rating.text = [[object valueForKey:@"overallRating"] stringValue];
+    cell.lowestPrice.text = @"undefined"; // data for this seems not to be available
+    
+    // construct image url for first image
+    NSArray *images = [object valueForKey:@"images"];
+    if (images.count) {
+        
+        Image *image = images[0];
+        NSString *URLStr = [NSString stringWithFormat:@"%@%@%@", [[image valueForKey:@"prefix"] description], @"_s", [[image valueForKey:@"suffix"] description]];
+        
+        [cell.activityIndicator startAnimating];
+        
+        // Load the image from the server and display it
+        // see https://github.com/rs/SDWebImage
+        [cell.thumbnail sd_setImageWithURL:[NSURL URLWithString:URLStr] placeholderImage:nil options:indexPath.row == 0 ? SDWebImageRefreshCached : 0 completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+
+            [cell.activityIndicator stopAnimating];
+        }];
+    }
 }
+
 
 #pragma mark - Fetched results controller
 
@@ -119,14 +190,14 @@
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     // Edit the entity name as appropriate.
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Event" inManagedObjectContext:self.managedObjectContext];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"PropertySummary" inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:entity];
     
     // Set the batch size to a suitable number.
     [fetchRequest setFetchBatchSize:20];
     
     // Edit the sort key as appropriate.
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"timeStamp" ascending:NO];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"overallRating" ascending:NO];
 
     [fetchRequest setSortDescriptors:@[sortDescriptor]];
     
@@ -185,7 +256,7 @@
             break;
             
         case NSFetchedResultsChangeUpdate:
-            [self configureCell:[tableView cellForRowAtIndexPath:indexPath] withObject:anObject];
+            [self configureCell:[tableView cellForRowAtIndexPath:indexPath] withObject:anObject forIndexPath:indexPath];
             break;
             
         case NSFetchedResultsChangeMove:
@@ -199,14 +270,19 @@
     [self.tableView endUpdates];
 }
 
-/*
-// Implementing the above methods to update the table view in response to individual changes may have performance implications if a large number of changes are made simultaneously. If this proves to be an issue, you can instead just implement controllerDidChangeContent: which notifies the delegate that all section and object changes have been processed. 
- 
- - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
-{
-    // In the simplest, most efficient, case, reload the table view.
-    [self.tableView reloadData];
-}
- */
+
+#pragma mark - UIScrollViewDelegate methods
+
+/*- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    float bottomEdge = scrollView.contentOffset.y + scrollView.frame.size.height;
+    if (bottomEdge >= scrollView.contentSize.height) {
+        [[PARESTManager sharedInstance] getPropertySummariesWithCityID:kCityID success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+            [self.tableView reloadData];
+            [self.refreshControl endRefreshing];
+        } failure:^(RKObjectRequestOperation *operation, NSError *error) {
+            [self.navigationController.view makeToast:@"Failed to Property Summaries"];
+        }];
+    }
+}*/
 
 @end

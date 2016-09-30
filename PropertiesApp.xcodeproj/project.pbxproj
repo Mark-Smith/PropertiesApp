@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0276168B41C17EAAF07B052C /* libPods-PropertiesAppUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 68B1881977348E1E4A6D55DA /* libPods-PropertiesAppUITests.a */; };
+		54348EA9E6DE1227C3145519 /* libPods-PropertiesApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 67E54B5ABAC1ECC76126B3CB /* libPods-PropertiesApp.a */; };
+		7DA1A81BE98F5254C6A72368 /* libPods-PropertiesAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 464D3AF73A2D84B5A83A3095 /* libPods-PropertiesAppTests.a */; };
 		E92818481D998A0A00258BE9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E92818471D998A0A00258BE9 /* main.m */; };
 		E928184B1D998A0A00258BE9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E928184A1D998A0A00258BE9 /* AppDelegate.m */; };
 		E928184E1D998A0A00258BE9 /* PropertiesApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E928184C1D998A0A00258BE9 /* PropertiesApp.xcdatamodeld */; };
@@ -17,6 +20,21 @@
 		E928185C1D998A0A00258BE9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E928185A1D998A0A00258BE9 /* LaunchScreen.storyboard */; };
 		E92818671D998A0A00258BE9 /* PropertiesAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E92818661D998A0A00258BE9 /* PropertiesAppTests.m */; };
 		E92818721D998A0A00258BE9 /* PropertiesAppUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E92818711D998A0A00258BE9 /* PropertiesAppUITests.m */; };
+		E928188C1D998C9C00258BE9 /* Image.m in Sources */ = {isa = PBXBuildFile; fileRef = E92818811D998C9C00258BE9 /* Image.m */; };
+		E928188D1D998C9C00258BE9 /* Image+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = E92818831D998C9C00258BE9 /* Image+CoreDataProperties.m */; };
+		E928188E1D998C9C00258BE9 /* PropertyDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = E92818851D998C9C00258BE9 /* PropertyDetails.m */; };
+		E928188F1D998C9C00258BE9 /* PropertyDetails+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = E92818871D998C9C00258BE9 /* PropertyDetails+CoreDataProperties.m */; };
+		E92818901D998C9C00258BE9 /* PropertySummary.m in Sources */ = {isa = PBXBuildFile; fileRef = E92818891D998C9C00258BE9 /* PropertySummary.m */; };
+		E92818911D998C9C00258BE9 /* PropertySummary+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = E928188B1D998C9C00258BE9 /* PropertySummary+CoreDataProperties.m */; };
+		E92818951D998D4E00258BE9 /* PARESTManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E92818941D998D4E00258BE9 /* PARESTManager.m */; };
+		E92818971D998D6400258BE9 /* PARESTManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E92818961D998D6400258BE9 /* PARESTManagerTests.m */; };
+		E94D40A81D9993F200B18365 /* PACoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E94D40A71D9993F200B18365 /* PACoreDataHelper.m */; };
+		E94D40B31D9A703B00B18365 /* license in Resources */ = {isa = PBXBuildFile; fileRef = E94D40AB1D9A703B00B18365 /* license */; };
+		E94D40B51D9A703B00B18365 /* UIView+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = E94D40B01D9A703B00B18365 /* UIView+Toast.m */; };
+		E94D40B61D9A703B00B18365 /* UIView+ToastExtras.m in Sources */ = {isa = PBXBuildFile; fileRef = E94D40B21D9A703B00B18365 /* UIView+ToastExtras.m */; };
+		E94D40B91D9A75B300B18365 /* PASummaryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E94D40B81D9A75B300B18365 /* PASummaryCell.m */; };
+		E94D410B1D9C01EF00B18365 /* PAImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E94D41091D9C01EF00B18365 /* PAImageViewController.m */; };
+		E94D410C1D9C01EF00B18365 /* PAImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E94D410A1D9C01EF00B18365 /* PAImageViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +55,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1496A521DB16BFFFFD3300DE /* Pods-PropertiesAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PropertiesAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PropertiesAppTests/Pods-PropertiesAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		22843E3F099691C860F4EA73 /* Pods-PropertiesApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PropertiesApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PropertiesApp/Pods-PropertiesApp.debug.xcconfig"; sourceTree = "<group>"; };
+		464D3AF73A2D84B5A83A3095 /* libPods-PropertiesAppTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PropertiesAppTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4FAD0E1F20F689DE4DFF8FEA /* Pods-PropertiesAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PropertiesAppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PropertiesAppUITests/Pods-PropertiesAppUITests.release.xcconfig"; sourceTree = "<group>"; };
+		5AEDD282EBC1F0D4EF5F6D8B /* Pods-PropertiesApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PropertiesApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-PropertiesApp/Pods-PropertiesApp.release.xcconfig"; sourceTree = "<group>"; };
+		67E54B5ABAC1ECC76126B3CB /* libPods-PropertiesApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PropertiesApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		68B1881977348E1E4A6D55DA /* libPods-PropertiesAppUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PropertiesAppUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4D004B7F200231CA9EA7ABF /* Pods-PropertiesAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PropertiesAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PropertiesAppTests/Pods-PropertiesAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		E92818431D998A0900258BE9 /* PropertiesApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PropertiesApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E92818471D998A0A00258BE9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E92818491D998A0A00258BE9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -56,6 +82,36 @@
 		E928186D1D998A0A00258BE9 /* PropertiesAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PropertiesAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E92818711D998A0A00258BE9 /* PropertiesAppUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PropertiesAppUITests.m; sourceTree = "<group>"; };
 		E92818731D998A0A00258BE9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E92818801D998C9C00258BE9 /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
+		E92818811D998C9C00258BE9 /* Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Image.m; sourceTree = "<group>"; };
+		E92818821D998C9C00258BE9 /* Image+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Image+CoreDataProperties.h"; sourceTree = "<group>"; };
+		E92818831D998C9C00258BE9 /* Image+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Image+CoreDataProperties.m"; sourceTree = "<group>"; };
+		E92818841D998C9C00258BE9 /* PropertyDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PropertyDetails.h; sourceTree = "<group>"; };
+		E92818851D998C9C00258BE9 /* PropertyDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PropertyDetails.m; sourceTree = "<group>"; };
+		E92818861D998C9C00258BE9 /* PropertyDetails+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PropertyDetails+CoreDataProperties.h"; sourceTree = "<group>"; };
+		E92818871D998C9C00258BE9 /* PropertyDetails+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PropertyDetails+CoreDataProperties.m"; sourceTree = "<group>"; };
+		E92818881D998C9C00258BE9 /* PropertySummary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PropertySummary.h; sourceTree = "<group>"; };
+		E92818891D998C9C00258BE9 /* PropertySummary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PropertySummary.m; sourceTree = "<group>"; };
+		E928188A1D998C9C00258BE9 /* PropertySummary+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PropertySummary+CoreDataProperties.h"; sourceTree = "<group>"; };
+		E928188B1D998C9C00258BE9 /* PropertySummary+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PropertySummary+CoreDataProperties.m"; sourceTree = "<group>"; };
+		E92818931D998D4E00258BE9 /* PARESTManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PARESTManager.h; sourceTree = "<group>"; };
+		E92818941D998D4E00258BE9 /* PARESTManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PARESTManager.m; sourceTree = "<group>"; };
+		E92818961D998D6400258BE9 /* PARESTManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PARESTManagerTests.m; sourceTree = "<group>"; };
+		E94D40A61D9993F200B18365 /* PACoreDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PACoreDataHelper.h; sourceTree = "<group>"; };
+		E94D40A71D9993F200B18365 /* PACoreDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PACoreDataHelper.m; sourceTree = "<group>"; };
+		E94D40A91D9A6FA300B18365 /* definitions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = definitions.h; sourceTree = "<group>"; };
+		E94D40AB1D9A703B00B18365 /* license */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = license; sourceTree = "<group>"; };
+		E94D40AC1D9A703B00B18365 /* README.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.markdown; sourceTree = "<group>"; };
+		E94D40AF1D9A703B00B18365 /* UIView+Toast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Toast.h"; sourceTree = "<group>"; };
+		E94D40B01D9A703B00B18365 /* UIView+Toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Toast.m"; sourceTree = "<group>"; };
+		E94D40B11D9A703B00B18365 /* UIView+ToastExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ToastExtras.h"; sourceTree = "<group>"; };
+		E94D40B21D9A703B00B18365 /* UIView+ToastExtras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ToastExtras.m"; sourceTree = "<group>"; };
+		E94D40B71D9A75B300B18365 /* PASummaryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PASummaryCell.h; sourceTree = "<group>"; };
+		E94D40B81D9A75B300B18365 /* PASummaryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PASummaryCell.m; sourceTree = "<group>"; };
+		E94D41081D9C01EF00B18365 /* PAImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PAImageViewController.h; sourceTree = "<group>"; };
+		E94D41091D9C01EF00B18365 /* PAImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PAImageViewController.m; sourceTree = "<group>"; };
+		E94D410A1D9C01EF00B18365 /* PAImageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PAImageViewController.xib; sourceTree = "<group>"; };
+		F99986B6BC34925FDBBDF462 /* Pods-PropertiesAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PropertiesAppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PropertiesAppUITests/Pods-PropertiesAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +119,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54348EA9E6DE1227C3145519 /* libPods-PropertiesApp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,6 +127,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7DA1A81BE98F5254C6A72368 /* libPods-PropertiesAppTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,12 +135,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0276168B41C17EAAF07B052C /* libPods-PropertiesAppUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		06B055DD88C19C86F33D4132 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				22843E3F099691C860F4EA73 /* Pods-PropertiesApp.debug.xcconfig */,
+				5AEDD282EBC1F0D4EF5F6D8B /* Pods-PropertiesApp.release.xcconfig */,
+				1496A521DB16BFFFFD3300DE /* Pods-PropertiesAppTests.debug.xcconfig */,
+				D4D004B7F200231CA9EA7ABF /* Pods-PropertiesAppTests.release.xcconfig */,
+				F99986B6BC34925FDBBDF462 /* Pods-PropertiesAppUITests.debug.xcconfig */,
+				4FAD0E1F20F689DE4DFF8FEA /* Pods-PropertiesAppUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		59FE0AC6FD82FAED575606E3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				67E54B5ABAC1ECC76126B3CB /* libPods-PropertiesApp.a */,
+				464D3AF73A2D84B5A83A3095 /* libPods-PropertiesAppTests.a */,
+				68B1881977348E1E4A6D55DA /* libPods-PropertiesAppUITests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E928183A1D998A0900258BE9 = {
 			isa = PBXGroup;
 			children = (
@@ -90,6 +172,8 @@
 				E92818651D998A0A00258BE9 /* PropertiesAppTests */,
 				E92818701D998A0A00258BE9 /* PropertiesAppUITests */,
 				E92818441D998A0900258BE9 /* Products */,
+				06B055DD88C19C86F33D4132 /* Pods */,
+				59FE0AC6FD82FAED575606E3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -106,6 +190,12 @@
 		E92818451D998A0A00258BE9 /* PropertiesApp */ = {
 			isa = PBXGroup;
 			children = (
+				E94D40AA1D9A703B00B18365 /* Toast */,
+				E94D40A91D9A6FA300B18365 /* definitions.h */,
+				E94D40A51D9993A600B18365 /* Core Data */,
+				E94D40A41D99939C00B18365 /* UI Model */,
+				E92818921D998D2000258BE9 /* REST */,
+				E928187F1D998B3200258BE9 /* Model */,
 				E92818491D998A0A00258BE9 /* AppDelegate.h */,
 				E928184A1D998A0A00258BE9 /* AppDelegate.m */,
 				E928184F1D998A0A00258BE9 /* MasterViewController.h */,
@@ -118,6 +208,11 @@
 				E928185D1D998A0A00258BE9 /* Info.plist */,
 				E928184C1D998A0A00258BE9 /* PropertiesApp.xcdatamodeld */,
 				E92818461D998A0A00258BE9 /* Supporting Files */,
+				E94D40B71D9A75B300B18365 /* PASummaryCell.h */,
+				E94D40B81D9A75B300B18365 /* PASummaryCell.m */,
+				E94D41081D9C01EF00B18365 /* PAImageViewController.h */,
+				E94D41091D9C01EF00B18365 /* PAImageViewController.m */,
+				E94D410A1D9C01EF00B18365 /* PAImageViewController.xib */,
 			);
 			path = PropertiesApp;
 			sourceTree = "<group>";
@@ -133,6 +228,7 @@
 		E92818651D998A0A00258BE9 /* PropertiesAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				E92818961D998D6400258BE9 /* PARESTManagerTests.m */,
 				E92818661D998A0A00258BE9 /* PropertiesAppTests.m */,
 				E92818681D998A0A00258BE9 /* Info.plist */,
 			);
@@ -148,6 +244,79 @@
 			path = PropertiesAppUITests;
 			sourceTree = "<group>";
 		};
+		E928187F1D998B3200258BE9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E92818801D998C9C00258BE9 /* Image.h */,
+				E92818811D998C9C00258BE9 /* Image.m */,
+				E92818821D998C9C00258BE9 /* Image+CoreDataProperties.h */,
+				E92818831D998C9C00258BE9 /* Image+CoreDataProperties.m */,
+				E92818841D998C9C00258BE9 /* PropertyDetails.h */,
+				E92818851D998C9C00258BE9 /* PropertyDetails.m */,
+				E92818861D998C9C00258BE9 /* PropertyDetails+CoreDataProperties.h */,
+				E92818871D998C9C00258BE9 /* PropertyDetails+CoreDataProperties.m */,
+				E92818881D998C9C00258BE9 /* PropertySummary.h */,
+				E92818891D998C9C00258BE9 /* PropertySummary.m */,
+				E928188A1D998C9C00258BE9 /* PropertySummary+CoreDataProperties.h */,
+				E928188B1D998C9C00258BE9 /* PropertySummary+CoreDataProperties.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		E92818921D998D2000258BE9 /* REST */ = {
+			isa = PBXGroup;
+			children = (
+				E92818931D998D4E00258BE9 /* PARESTManager.h */,
+				E92818941D998D4E00258BE9 /* PARESTManager.m */,
+			);
+			name = REST;
+			sourceTree = "<group>";
+		};
+		E94D40A41D99939C00B18365 /* UI Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "UI Model";
+			sourceTree = "<group>";
+		};
+		E94D40A51D9993A600B18365 /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				E94D40A61D9993F200B18365 /* PACoreDataHelper.h */,
+				E94D40A71D9993F200B18365 /* PACoreDataHelper.m */,
+			);
+			name = "Core Data";
+			sourceTree = "<group>";
+		};
+		E94D40AA1D9A703B00B18365 /* Toast */ = {
+			isa = PBXGroup;
+			children = (
+				E94D40AB1D9A703B00B18365 /* license */,
+				E94D40AC1D9A703B00B18365 /* README.markdown */,
+				E94D40AD1D9A703B00B18365 /* Toast */,
+			);
+			path = Toast;
+			sourceTree = "<group>";
+		};
+		E94D40AD1D9A703B00B18365 /* Toast */ = {
+			isa = PBXGroup;
+			children = (
+				E94D40AE1D9A703B00B18365 /* Toast */,
+			);
+			path = Toast;
+			sourceTree = "<group>";
+		};
+		E94D40AE1D9A703B00B18365 /* Toast */ = {
+			isa = PBXGroup;
+			children = (
+				E94D40AF1D9A703B00B18365 /* UIView+Toast.h */,
+				E94D40B01D9A703B00B18365 /* UIView+Toast.m */,
+				E94D40B11D9A703B00B18365 /* UIView+ToastExtras.h */,
+				E94D40B21D9A703B00B18365 /* UIView+ToastExtras.m */,
+			);
+			path = Toast;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -155,9 +324,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E92818761D998A0A00258BE9 /* Build configuration list for PBXNativeTarget "PropertiesApp" */;
 			buildPhases = (
+				506488A42A156C07A74E69A8 /* [CP] Check Pods Manifest.lock */,
 				E928183F1D998A0900258BE9 /* Sources */,
 				E92818401D998A0900258BE9 /* Frameworks */,
 				E92818411D998A0900258BE9 /* Resources */,
+				359E743A1EA73C759C358BD5 /* [CP] Embed Pods Frameworks */,
+				DE5C88AFA3AD0688E953522B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -172,9 +344,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E92818791D998A0A00258BE9 /* Build configuration list for PBXNativeTarget "PropertiesAppTests" */;
 			buildPhases = (
+				AF7FF578A779748370A0BDC1 /* [CP] Check Pods Manifest.lock */,
 				E928185E1D998A0A00258BE9 /* Sources */,
 				E928185F1D998A0A00258BE9 /* Frameworks */,
 				E92818601D998A0A00258BE9 /* Resources */,
+				A6E3DE6CDB4CCAA3702B9D31 /* [CP] Embed Pods Frameworks */,
+				713876DC15C6646DFE9276D8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -190,9 +365,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E928187C1D998A0A00258BE9 /* Build configuration list for PBXNativeTarget "PropertiesAppUITests" */;
 			buildPhases = (
+				94A4FDBCCB8B95D7487D92D7 /* [CP] Check Pods Manifest.lock */,
 				E92818691D998A0A00258BE9 /* Sources */,
 				E928186A1D998A0A00258BE9 /* Frameworks */,
 				E928186B1D998A0A00258BE9 /* Resources */,
+				A9E7F2E9D54F5DD4A4279F47 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -251,8 +428,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E94D410C1D9C01EF00B18365 /* PAImageViewController.xib in Resources */,
 				E928185C1D998A0A00258BE9 /* LaunchScreen.storyboard in Resources */,
 				E92818591D998A0A00258BE9 /* Assets.xcassets in Resources */,
+				E94D40B31D9A703B00B18365 /* license in Resources */,
 				E92818571D998A0A00258BE9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -273,16 +452,151 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		359E743A1EA73C759C358BD5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PropertiesApp/Pods-PropertiesApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		506488A42A156C07A74E69A8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		713876DC15C6646DFE9276D8 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PropertiesAppTests/Pods-PropertiesAppTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		94A4FDBCCB8B95D7487D92D7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A6E3DE6CDB4CCAA3702B9D31 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PropertiesAppTests/Pods-PropertiesAppTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A9E7F2E9D54F5DD4A4279F47 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PropertiesAppUITests/Pods-PropertiesAppUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AF7FF578A779748370A0BDC1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		DE5C88AFA3AD0688E953522B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PropertiesApp/Pods-PropertiesApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E928183F1D998A0900258BE9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E92818951D998D4E00258BE9 /* PARESTManager.m in Sources */,
+				E94D40A81D9993F200B18365 /* PACoreDataHelper.m in Sources */,
+				E928188F1D998C9C00258BE9 /* PropertyDetails+CoreDataProperties.m in Sources */,
+				E94D40B51D9A703B00B18365 /* UIView+Toast.m in Sources */,
+				E928188D1D998C9C00258BE9 /* Image+CoreDataProperties.m in Sources */,
+				E94D40B61D9A703B00B18365 /* UIView+ToastExtras.m in Sources */,
 				E92818541D998A0A00258BE9 /* DetailViewController.m in Sources */,
 				E92818511D998A0A00258BE9 /* MasterViewController.m in Sources */,
 				E928184B1D998A0A00258BE9 /* AppDelegate.m in Sources */,
+				E92818911D998C9C00258BE9 /* PropertySummary+CoreDataProperties.m in Sources */,
+				E928188C1D998C9C00258BE9 /* Image.m in Sources */,
 				E928184E1D998A0A00258BE9 /* PropertiesApp.xcdatamodeld in Sources */,
+				E92818901D998C9C00258BE9 /* PropertySummary.m in Sources */,
+				E94D40B91D9A75B300B18365 /* PASummaryCell.m in Sources */,
+				E94D410B1D9C01EF00B18365 /* PAImageViewController.m in Sources */,
 				E92818481D998A0A00258BE9 /* main.m in Sources */,
+				E928188E1D998C9C00258BE9 /* PropertyDetails.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,6 +604,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E92818971D998D6400258BE9 /* PARESTManagerTests.m in Sources */,
 				E92818671D998A0A00258BE9 /* PropertiesAppTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -423,6 +738,7 @@
 		};
 		E92818771D998A0A00258BE9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 22843E3F099691C860F4EA73 /* Pods-PropertiesApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = PropertiesApp/Info.plist;
@@ -434,6 +750,7 @@
 		};
 		E92818781D998A0A00258BE9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5AEDD282EBC1F0D4EF5F6D8B /* Pods-PropertiesApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = PropertiesApp/Info.plist;
@@ -445,6 +762,7 @@
 		};
 		E928187A1D998A0A00258BE9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1496A521DB16BFFFFD3300DE /* Pods-PropertiesAppTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = PropertiesAppTests/Info.plist;
@@ -457,6 +775,7 @@
 		};
 		E928187B1D998A0A00258BE9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D4D004B7F200231CA9EA7ABF /* Pods-PropertiesAppTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = PropertiesAppTests/Info.plist;
@@ -469,6 +788,7 @@
 		};
 		E928187D1D998A0A00258BE9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F99986B6BC34925FDBBDF462 /* Pods-PropertiesAppUITests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = PropertiesAppUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -480,6 +800,7 @@
 		};
 		E928187E1D998A0A00258BE9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4FAD0E1F20F689DE4DFF8FEA /* Pods-PropertiesAppUITests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = PropertiesAppUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -508,6 +829,7 @@
 				E92818781D998A0A00258BE9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E92818791D998A0A00258BE9 /* Build configuration list for PBXNativeTarget "PropertiesAppTests" */ = {
 			isa = XCConfigurationList;
@@ -516,6 +838,7 @@
 				E928187B1D998A0A00258BE9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E928187C1D998A0A00258BE9 /* Build configuration list for PBXNativeTarget "PropertiesAppUITests" */ = {
 			isa = XCConfigurationList;
@@ -524,6 +847,7 @@
 				E928187E1D998A0A00258BE9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

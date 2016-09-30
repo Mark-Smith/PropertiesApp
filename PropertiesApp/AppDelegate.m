@@ -7,8 +7,12 @@
 //
 
 #import "AppDelegate.h"
-#import "DetailViewController.h"
 #import "MasterViewController.h"
+#import "DetailViewController.h"
+#import <CoreData/CoreData.h>
+#import "PARESTManager.h"
+#import <RestKit/RestKit.h>
+
 
 @interface AppDelegate () <UISplitViewControllerDelegate>
 
@@ -19,14 +23,25 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
+    
+    PARESTManager *RESTManager = [PARESTManager sharedInstance];
+    [RESTManager config];
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UISplitViewController *splitViewController = [storyboard instantiateViewControllerWithIdentifier:@"UISplitViewController"];
     UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
     navigationController.topViewController.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem;
     splitViewController.delegate = self;
-
+    splitViewController.preferredDisplayMode = UISplitViewControllerDisplayModePrimaryOverlay;
+    //[splitViewController setPreferredDisplayMode:UISplitViewControllerDisplayModeAllVisible];
+    
     UINavigationController *masterNavigationController = splitViewController.viewControllers[0];
-    MasterViewController *controller = (MasterViewController *)masterNavigationController.topViewController;
-    controller.managedObjectContext = self.managedObjectContext;
+    MasterViewController *masterViewController = (MasterViewController *)masterNavigationController.topViewController;
+    masterViewController.managedObjectContext = [RKObjectManager sharedManager].managedObjectStore.mainQueueManagedObjectContext;
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.rootViewController = splitViewController;
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 
@@ -54,16 +69,16 @@
     [self saveContext];
 }
 
-#pragma mark - Split view
-
-- (BOOL)splitViewController:(UISplitViewController *)splitViewController collapseSecondaryViewController:(UIViewController *)secondaryViewController ontoPrimaryViewController:(UIViewController *)primaryViewController {
-    if ([secondaryViewController isKindOfClass:[UINavigationController class]] && [[(UINavigationController *)secondaryViewController topViewController] isKindOfClass:[DetailViewController class]] && ([(DetailViewController *)[(UINavigationController *)secondaryViewController topViewController] detailItem] == nil)) {
-        // Return YES to indicate that we have handled the collapse by doing nothing; the secondary controller will be discarded.
-        return YES;
-    } else {
-        return NO;
-    }
-}
+/*#pragma mark - Split view
+ 
+ - (BOOL)splitViewController:(UISplitViewController *)splitViewController collapseSecondaryViewController:(UIViewController *)secondaryViewController ontoPrimaryViewController:(UIViewController *)primaryViewController {
+ if ([secondaryViewController isKindOfClass:[UINavigationController class]] && [[(UINavigationController *)secondaryViewController topViewController] isKindOfClass:[DetailViewController class]] && ([(DetailViewController *)[(UINavigationController *)secondaryViewController topViewController] detailItem] == nil)) {
+ // Return YES to indicate that we have handled the collapse by doing nothing; the secondary controller will be discarded.
+ return YES;
+ } else {
+ return NO;
+ }
+ }*/
 
 #pragma mark - Core Data stack
 
@@ -72,7 +87,7 @@
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
 - (NSURL *)applicationDocumentsDirectory {
-    // The directory the application uses to store the Core Data store file. This code uses a directory named "com.marksmith.PropertiesApp" in the application's documents directory.
+    // The directory the application uses to store the Core Data store file. This code uses a directory named "com.propertyapp.PropertyApp" in the application's documents directory.
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
 
@@ -142,6 +157,27 @@
             NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
             abort();
         }
+    }
+}
+
+
+#pragma mark - UISplitViewControllerDelegate
+
+- (BOOL)splitViewController:(UISplitViewController *)splitViewController
+collapseSecondaryViewController:(UIViewController *)secondaryViewController
+  ontoPrimaryViewController:(UIViewController *)primaryViewController {
+    
+    if ([secondaryViewController isKindOfClass:[UINavigationController class]]
+        && [[(UINavigationController *)secondaryViewController topViewController] isKindOfClass:[DetailViewController class]]
+        && ([(DetailViewController *)[(UINavigationController *)secondaryViewController topViewController] propertySummaryMO] == nil)) {
+        
+        // Return YES to indicate that we have handled the collapse by doing nothing; the secondary controller will be discarded.
+        return YES;
+        
+    } else {
+        
+        return NO;
+        
     }
 }
 
